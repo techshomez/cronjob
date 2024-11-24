@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "CronJob",
+  title: "CronJob | Home",
   description: "Home for your daily tasks",
 };
 

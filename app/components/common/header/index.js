@@ -2,7 +2,7 @@
 import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
-import { HiChevronDown } from "react-icons/hi";
+import { HiChevronDown,HiOutlineLogin  } from "react-icons/hi";
 import { menuData } from "../../utilities/menuData";
 
 function Header() {
@@ -33,6 +33,12 @@ function Header() {
               <span>Talent</span>
               <i><HiChevronDown /></i>
             </div>
+          </div>
+          <div className="nav__cta">
+            <Link href="/login">
+             <HiOutlineLogin />
+            </Link>
+            
           </div>
         </div>
       </div>
