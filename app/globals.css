@@ -2,10 +2,19 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  --white-bg:#fff;
+  --nav-color:rgb(24, 24, 24);
+  --nav-font:"Neue Montreal", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
 }
 
