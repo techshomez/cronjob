@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.header .container .logo{
+.header .container .logo,a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +85,15 @@
 }
 
 .header .container .right__nav .search__form .search__dropdown{
+    position: relative;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .container .right__nav .search__form .search__dropdown .search__holder{
     width: 80px;
     display: flex;
     justify-content: center;
@@ -93,13 +102,13 @@
     cursor: pointer;
 }
 
-.header .container .right__nav .search__form .search__dropdown:hover{
+.header .container .right__nav .search__form .search__dropdown .search__holder:hover{
     background-color: var(--white-bg);
     border-radius: 50px;
     height: 40px;
 }
 
-.header .container .right__nav .search__form .search__dropdown>span{
+.header .container .right__nav .search__form .search__dropdown .search__holder>span{
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
@@ -107,7 +116,7 @@
     color: var(--nav-color);
 }
 
-.header .container .right__nav .search__form .search__dropdown>i{
+.header .container .right__nav .search__form .search__dropdown .search__holder>i{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,4 +138,19 @@
 
 .header .container .right__nav .nav__cta>a:hover{
     color: var(--nav-hover);
+}
+
+.header .container .right__nav .search__dropdown .search__dropdown__item{
+    position: absolute;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    height: 180px;
+    top: 3.1rem;
+    right: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background-color: var(--white-bg);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
