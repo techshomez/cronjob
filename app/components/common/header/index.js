@@ -28,6 +28,7 @@ function Header() {
             <div className="form__group">
               <input type="text" placeholder="search...." />
             </div>
+            <div className="divider"></div>
             <div className="search__dropdown">
               <span>Talent</span>
               <i><HiChevronDown /></i>
