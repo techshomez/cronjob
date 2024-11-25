@@ -2,14 +2,15 @@
 import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
-import { HiChevronDown,HiOutlineLogin  } from "react-icons/hi";
+import { HiChevronDown,HiOutlineLogin, HiOutlineUsers, HiClipboardCheck, HiOutlineBriefcase, HiMenu  } from "react-icons/hi";
 import { menuData } from "../../utilities/menuData";
-
 import { useState } from "react";
 
 function Header() {
 
   const [searchDropdown, setSearchDropdown] = useState(false);
+  const [searchSort, setSearchSort] = useState("talent");
+  //const [openSort, setOpenSort] = useState(false)
 
   const handleSearchDropdown = ()=>{
     setSearchDropdown(!searchDropdown);
@@ -42,20 +43,38 @@ function Header() {
             </div>
             <div className="divider"></div>
             <div className="search__dropdown">
-              <div className="search__holder">
-              <span onClick={handleSearchDropdown}>Talent</span>
+              <div className="search__holder" onClick={handleSearchDropdown}>
+              <span>{searchSort === "talent" ? "Talent" : "Projects"}</span>
               <i><HiChevronDown /></i>
               </div>
               {searchDropdown &&(
                 <div className="search__dropdown__item">
-                <div className="search__dropdown__item_holder">
-                  <div className="search__dropdown__item_list">
-                    <div className="search__dropdown__item_left">
-                      <i></i>
+                <div className="search__dropdown__item__holder">
+                    <div className="search__dropdown__item__list">
+                    <div className="search__dropdown__item__left">
+                      <i><HiOutlineUsers /></i>
                     </div>
-                    <div className="search__dropdown__item_right">
-                      <span>Talent</span>
+                    <div className="search__dropdown__item__right">
+                      <h2>Talent</h2>
                       <small>Hire professional</small>
+                    </div>
+                  </div>
+                  <div className="search__dropdown__item__list">
+                    <div className="search__dropdown__item__left">
+                      <i><HiClipboardCheck /></i>
+                    </div>
+                    <div className="search__dropdown__item__right">
+                      <h2>Projects</h2>
+                      <small>Get hired for services</small>
+                    </div>
+                  </div>
+                  <div className="search__dropdown__item__list">
+                    <div className="search__dropdown__item__left">
+                      <i><HiOutlineBriefcase /></i>
+                    </div>
+                    <div className="search__dropdown__item__right">
+                      <h2>Jobs</h2>
+                      <small>Applying to jobs posted client</small>
                     </div>
                   </div>
                 </div>
@@ -69,6 +88,9 @@ function Header() {
             </Link>
             
           </div>
+        </div>
+        <div className="mobile__toggle">
+          <i><HiMenu /></i>
         </div>
       </div>
     </header>
