@@ -1,8 +1,8 @@
-"use client";
 import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
-import { HiChevronDown,HiOutlineLogin, HiOutlineUsers, HiClipboardCheck, HiOutlineBriefcase, HiMenu  } from "react-icons/hi";
+import { HiChevronDown,HiOutlineLogin, HiOutlineUsers, HiClipboardCheck, HiOutlineBriefcase, HiMenu, HiX  } from "react-icons/hi";
+import {HiOutlineGlobeAlt, HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { menuData } from "../../utilities/menuData";
 import { useState } from "react";
 
@@ -11,9 +11,29 @@ function Header() {
   const [searchDropdown, setSearchDropdown] = useState(false);
   const [searchSort, setSearchSort] = useState("talent");
   //const [openSort, setOpenSort] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [translate, setTranslate] = useState(false);
+  const [mobileSearchDropdown, setMobileSearchDropdown] = useState(false);
+
+  const handleMobileToggle = ()=>{
+    setMobileOpen(!mobileOpen);
+  }
 
   const handleSearchDropdown = ()=>{
     setSearchDropdown(!searchDropdown);
+  }
+
+  const handleTranslate = () =>{
+     setTranslate(!translate);
+     setMobileSearchDropdown(false);
+     setMobileOpen(false);
+
+  }
+
+  const handleMobileSearch = ()=>{
+    setMobileSearchDropdown(!mobileSearchDropdown);
+    setTranslate(false);
+    setMobileOpen(false);
   }
 
 
@@ -89,8 +109,51 @@ function Header() {
             
           </div>
         </div>
-        <div className="mobile__toggle">
-          <i><HiMenu /></i>
+        <div className="mobile__icons">
+          <div className="mobile__icon__list">
+            <i onClick={handleTranslate}><HiOutlineGlobeAlt /></i>
+            {translate && (
+            <div className="language__drop">
+              <div className="language__drop__list">
+                <Image src="/images/usa.svg" width={30} height={30} alt="" />
+                <span>English</span>
+              </div>
+              <div className="language__drop__list">
+                <Image src="/images/german.svg" width={30} height={30} alt="" />
+                <span>German</span>
+              </div>
+              <div className="language__drop__list">
+                <Image src="/images/italy.svg" width={30} height={30} alt="" />
+                <span>Italy</span>
+              </div>
+              <div className="language__drop__list">
+                <Image src="/images/japan.svg" width={30} height={30} alt="" />
+                <span>Japan</span>
+              </div>
+              <div className="language__drop__list">
+                <Image src="/images/korean.svg" width={30} height={30} alt="" />
+                <span>Korean</span>
+              </div>
+              <div className="language__drop__list">
+                <Image src="/images/portugues.svg" width={30} height={30} alt="" />
+                <span>Portugues</span>
+              </div>
+            </div>
+             )}
+          </div>
+         
+          <div className="mobile__icon__list">
+            <i onClick={handleMobileSearch}><HiOutlineMagnifyingGlass /></i>
+            {mobileSearchDropdown &&(
+            <div className="mobile__search">
+              <input type="text" placeholder="Search...." />
+            </div>
+            )}
+          </div>
+          <Link href="/login">Login</Link>
+        </div>
+        <div className={mobileOpen ? "mobile__toggle mobile__toggle__close" :"mobile__toggle"} onClick={handleMobileToggle}>
+          <i>{mobileOpen ?<HiX /> : <HiMenu />}</i>
         </div>
       </div>
     </header>
